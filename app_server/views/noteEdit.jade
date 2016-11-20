@@ -1,0 +1,24 @@
+extends layout
+
+include _includes/shf
+
+
+block content
+    .row.page-header
+        .col-lg-12
+            h1= pageHeader.title
+            small &nbsp;#{pageHeader.strapline}
+    each entry in entries
+        .col-lg-12.list-group-item
+            h4
+                a(href='/notes/edit')= entry.name
+                small &nbsp;
+                  +outputRating(entry.rating)
+            p.review= entry.review
+
+
+    .row
+        .col-xs-12.col-md-6
+            .btn.btn-default.pull-right Add note
+            .btn.btn-default.pull-right Delete note
+            .btn.btn-default.pull-right Update note
